@@ -1,136 +1,760 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yaar Ivan</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  </head>
-  <body>
-   <nav class="navbar fixed-top navbar-expand-lg navbar-dark page-navbar gradient">
-      <div class="container">
-        <a class="navbar-brand logo" href="#">merb.in</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item item">
-                <li class="nav-item item">
-                  <a class="nav-link" href="#work-experience">Work Experience</a>
-                </li>
-                <!-- <li class="nav-item item">
-                    <a class="nav-link" href="#education">Education</a>
-                </li> -->
-                <li class="nav-item item">
-                  <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <!-- <li class="nav-item item">
-                    <a class="nav-link" href="#hobbies">Hobbies</a>
-                </li> -->
-              </li>
-            </ul>
-          </div>
-      </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merbin Russel - I Break Things (Professionally) 🛡️💥</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --hacker-gradient: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            --fun-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .hero-section {
+            background: var(--hacker-gradient);
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '💻🔒🐛💥🛡️';
+            font-size: 6rem;
+            position: absolute;
+            top: 20%;
+            left: -10%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '🚨⚡🔍💀🎯';
+            font-size: 4rem;
+            position: absolute;
+            bottom: 20%;
+            right: -5%;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 30px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title.fun::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--fun-gradient);
+            display: block;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .experience-card {
+            background: linear-gradient(45deg, #f8f9fa, #ffffff);
+            border-left: 5px solid;
+            position: relative;
+        }
+
+        .experience-card::before {
+            content: '🎯';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .experience-card.current {
+            border-left-color: #28a745;
+        }
+
+        .experience-card.current::before {
+            content: '🚀';
+        }
+
+        .experience-card.previous {
+            border-left-color: #007bff;
+        }
+
+        .experience-card.previous::before {
+            content: '📚';
+        }
+
+        .skill-category {
+            margin-bottom: 40px;
+        }
+
+        .skill-item {
+            background: linear-gradient(45deg, #f8f9fa, #ffffff);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item:hover {
+            transform: translateX(10px) scale(1.02);
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+        }
+
+        .skill-item::before {
+            content: '⚡';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .badge-custom {
+            background: var(--fun-gradient);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin: 8px;
+            display: inline-block;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .badge-custom:hover {
+            transform: scale(1.1) rotate(-2deg);
+        }
+
+        .achievement-badge {
+            background: var(--success-gradient);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 35px;
+            font-weight: 600;
+            margin: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-badge:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-card {
+            background: linear-gradient(45deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 5px solid;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px) rotate(-1deg);
+        }
+
+        .project-card.security { 
+            border-left-color: #dc3545; 
+        }
+        .project-card.security::after { 
+            content: '🔥'; 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 2rem; 
+        }
+
+        .project-card.cloud { 
+            border-left-color: #17a2b8; 
+        }
+        .project-card.cloud::after { 
+            content: '☁️'; 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 2rem; 
+        }
+
+        .project-card.automation { 
+            border-left-color: #28a745; 
+        }
+        .project-card.automation::after { 
+            content: '🤖'; 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 2rem; 
+        }
+
+        .project-card.hacking { 
+            border-left-color: #e94560; 
+        }
+        .project-card.hacking::after { 
+            content: '💀'; 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 2rem; 
+        }
+
+        .certification-badge {
+            background: var(--warning-gradient);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 15px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .certification-badge:hover {
+            transform: scale(1.05) rotate(-3deg);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            line-height: 55px;
+            text-align: center;
+            border-radius: 50%;
+            margin: 12px;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.15) rotate(10deg);
+            color: white;
+        }
+
+        .social-links .github { background: #333; }
+        .social-links .linkedin { background: #0077b5; }
+        .social-links .email { background: #ea4335; }
+        .social-links .blog { background: #ff6b35; }
+        .social-links .twitter { background: #1da1f2; }
+        .social-links .instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+
+        .stats-card {
+            text-align: center;
+            padding: 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .stats-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--hacker-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .interest-item {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 30px;
+            margin: 12px;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .interest-item:hover {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #43e97b);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .bg-light-custom {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .funny-quote {
+            font-style: italic;
+            color: #6c757d;
+            border-left: 4px solid var(--fun-gradient);
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 7% { transform: rotateZ(0); }
+            15% { transform: rotateZ(-15deg); }
+            20% { transform: rotateZ(10deg); }
+            25% { transform: rotateZ(-10deg); }
+            30% { transform: rotateZ(6deg); }
+            35% { transform: rotateZ(-4deg); }
+            40%, 100% { transform: rotateZ(0); }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            .hero-section {
+                padding: 80px 0;
+            }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top animated-gradient">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🔒 merb.in 💀</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">👋 About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">💼 Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">⚡ Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">🚀 Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certs">🏆 Certs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">📬 Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    <main class="page cv-page">
-      <section class="cv-block block-intro border-bottom">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-          <div class="avatar">
-            <img class="img-fluid rounded-circle" src="assets/img/avatar.jpg">
-          </div>
-          <p>Hello! I am <strong>Merbin Russel</strong>. I work as Security Engineer,I'm skilled at both defensive and offensive security, Curiously exploring how things works and enhancing my skills on the way</p>
-          <!-- <a href="#" class="btn btn-outline-primary">More Info</a> -->
+            <div class="hero-content text-center">
+                <img src="assets/img/avatar.jpg" alt="Merbin Russel" class="profile-img wiggle">
+                <h1 class="display-4 fw-bold mb-3">Merbin Russel</h1>
+                <h3 class="h4 mb-4">Senior Security Engineer 🛡️</h3>
+                <p class="lead mb-4">I break things... then fix them (professionally, of course) 💥🔧</p>
+                <div class="mb-4">
+                    <span class="badge-custom">🔍 Bug Hunter</span>
+                    <span class="badge-custom">☁️ Cloud Breaker</span>
+                    <span class="badge-custom">🐍 Python Charmer</span>
+                    <span class="badge-custom">🥷 Ethical Hacker</span>
+                </div>
+                <a href="#about" class="btn btn-light btn-lg px-4 py-2 rounded-pill">🚀 Let's Go!</a>
+            </div>
         </div>
-      </section>
-      <section class="cv-block info">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
         <div class="container">
-          <div class="work-experience group" id="work-experience">
-            <h2 class="text-center">Work Experience</h2>
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <h3>Senior Security Engineer</h3>
-                  <h4 class="organization">Amagi Media Labs</h4>
-                </div>
-                <div class="col-md-6">
-                  <time class="period">09/2023 - Present</time>
-                </div>
-              </div>
-              <!-- <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p> -->
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <h3>Security Engineer</h3>
-                  <h4 class="organization">Freshworks</h4>
-                </div>
-                <div class="col-md-6">
-                  <time class="period">09/2021 - 09/2023</time>
-                </div>
-              </div>
-            </div>
-            <a href="https://www.linkedin.com/in/merbin-russel/#experience" class="btn btn-outline-primary">More Info</a>
-          </div>
-          <div class="group" id="skills">
+            <h2 class="section-title fun">About This Chaos 😄</h2>
             <div class="row">
-              <div class="col-md-6">
-                <div class="skills info-card">
-                  <h2>Skills</h2>
-                  <h3>Offensive Security</h3>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <p class="lead">Hey there! 👋 I'm a Senior Security Engineer at <strong>Amagi Media Labs</strong> in Bengaluru. I've been breaking things (ethically!) for almost <strong>4 years</strong> now.</p>
+                            
+                            <div class="funny-quote">
+                                "I secure systems AND break them. It's like being a superhero with trust issues." 🦸‍♂️
+                            </div>
+                            
+                            <p>My philosophy? Balance security with sanity. No point in building Fort Knox if nobody can get their work done! 🏰</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="stats-card">
+                                        <div class="stats-number">4</div>
+                                        <p class="mb-0">Years of Mayhem 🎯</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <h3>DevSecOps</h3>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                    </div>
-                  </div>
-                  <h3>Cloud Security</h3>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:85%">
-                    </div>
-                  </div>
-                  <h3>Security Operations</h3>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                    </div>
-                  </div>
-                  <h3>Programming</h3>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
-      <footer class="page-footer">
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-light-custom">
         <div class="container">
-          <div class="social-icons">
-            <a href="mailto:reachme@merb.in"><i class="ion-email" title="Email"></i></a>
-            <a href="https://github.com/merbinr"><i class="ion-social-github" title="Github"></i></a>
-            <a href="https://blog.merb.in"><i class="ion-earth" title="Blog"></i></a>
-            <a href="https://www.linkedin.com/in/merbin-russel"><i class="ion-social-linkedin" title="Linkedin"></i></a>
-            <a href="https://www.instagram.com/merbin_r"><i class="ion-social-instagram-outline" title="Instagram"></i></a>
-            <a href="https://x.com/merbinrussel"><i class="ion-social-twitter" title="Twitter"></i></a>
-          </div>
+            <h2 class="section-title fun">Where I've Caused Trouble 💼</h2>
+            
+            <!-- Current Role -->
+            <div class="card experience-card current">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="fw-bold mb-2">Senior Security Engineer</h4>
+                            <h6 class="text-success mb-3">Amagi Media Labs</h6>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <span class="badge bg-success">Sep 2023 - Present</span>
+                        </div>
+                    </div>
+                    
+                    <p class="mb-3">Currently making containers cry and SIEM rules smarter 😈</p>
+                    <ul class="list-unstyled">
+                        <li>🎯 Built attack surface monitor → Found 40+ issues (oops!)</li>
+                        <li>📦 Migrated to distroless containers (they're naked but secure)</li>
+                        <li>🤖 Created Python automation for cloud shenanigans</li>
+                        <li>📊 Crafted SIEM rules that actually work</li>
+                        <li>👨‍🏫 Taught SOC team to be paranoid professionals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Previous Role -->
+            <div class="card experience-card previous mt-4">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4 class="fw-bold mb-2">Security Engineer → Senior</h4>
+                            <h6 class="text-primary mb-3">Freshworks</h6>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <span class="badge bg-primary">Sep 2021 - Sep 2023</span>
+                        </div>
+                    </div>
+                    
+                    <p class="mb-3">Where I learned that breaking things is an art form 🎨</p>
+                    <ul class="list-unstyled">
+                        <li>🐛 Found 70+ vulnerabilities (I was busy!)</li>
+                        <li>💀 Discovered 12+ critical issues via code review</li>
+                        <li>🔍 Built GitHub leak monitor (catching secrets like Pokémon)</li>
+                        <li>📝 Wrote SAST rules that developers love to hate</li>
+                        <li>🎓 Taught devs to code like their secrets matter</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </footer>
-    </main>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="assets/js/script.js"></script>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fun">My Arsenal of Chaos ⚡</h2>
+            
+            <div class="row">
+                <!-- Breaking Things -->
+                <div class="col-lg-6 mb-4">
+                    <div class="skill-category">
+                        <h4 class="fw-bold mb-3">🔥 Breaking Things (Ethically)</h4>
+                        <div class="skill-item">
+                            <strong>Web App Hacking</strong>
+                            <p class="small mb-0 text-muted">OWASP Top 10, SQL injection, XSS parties</p>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Penetration Testing</strong>
+                            <p class="small mb-0 text-muted">Network, mobile, whatever needs breaking</p>
+                        </div>
+                                                 <div class="skill-item">
+                             <strong>Kubernetes Workload Protection</strong>
+                             <p class="small mb-0 text-muted">Falco runtime security, threat detection in K8s</p>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Fixing Things -->
+                <div class="col-lg-6 mb-4">
+                    <div class="skill-category">
+                        <h4 class="fw-bold mb-3">🛡️ Fixing Things (Responsibly)</h4>
+                        <div class="skill-item">
+                            <strong>Cloud Security</strong>
+                            <p class="small mb-0 text-muted">AWS, GCP, making clouds rain securely</p>
+                        </div>
+                        <div class="skill-item">
+                            <strong>DevSecOps</strong>
+                            <p class="small mb-0 text-muted">CI/CD security, automation magic</p>
+                        </div>
+                        <div class="skill-item">
+                            <strong>Container Security</strong>
+                            <p class="small mb-0 text-muted">Docker, K8s, distroless lifestyle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="text-center mt-4">
+                <h4 class="fw-bold mb-4">Tech I Actually Use 🔧</h4>
+                <span class="badge-custom">Python 🐍</span>
+                <span class="badge-custom">AWS ☁️</span>
+                <span class="badge-custom">Docker 🐳</span>
+                <span class="badge-custom">Burp Suite 🔥</span>
+                <span class="badge-custom">Linux 🐧</span>
+                <span class="badge-custom">Bash 💻</span>
+                <span class="badge-custom">Git 📝</span>
+                <span class="badge-custom">Kubernetes ⚙️</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-light-custom">
+        <div class="container">
+            <h2 class="section-title fun">Cool Stuff I've Built 🚀</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="project-card security">
+                        <h5 class="fw-bold mb-3">Attack Surface Monitor</h5>
+                        <p>Automated scanner that found 40+ issues. Like having a security robot that never sleeps! 🤖</p>
+                        <div class="achievement-badge">40+ Bugs Found!</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="project-card hacking">
+                        <h5 class="fw-bold mb-3">GitHub Secret Hunter</h5>
+                        <p>Catches leaked credentials faster than you can say "oops". Developers hate this one trick! 😈</p>
+                        <div class="achievement-badge">Secret Ninja</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="project-card cloud">
+                        <h5 class="fw-bold mb-3">Distroless Migration</h5>
+                        <p>Made containers go on a diet. They're lighter, faster, and more secure now! 📦</p>
+                        <div class="achievement-badge">Container Whisperer</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="project-card automation">
+                        <h5 class="fw-bold mb-3">SIEM Rule Wizard</h5>
+                        <p>Created rules so smart, they make threats cry. Detection level: Sherlock Holmes! 🕵️</p>
+                        <div class="achievement-badge">Threat Detective</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certs" class="section">
+        <div class="container">
+            <h2 class="section-title fun">My Fancy Papers 🏆</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="certification-badge">
+                        <i class="fas fa-certificate fa-2x mb-3"></i>
+                        <h5>CEH 🥷</h5>
+                        <p class="mb-0">Certified Ethical Hacker<br><small>(License to break things)</small></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="certification-badge">
+                        <i class="fas fa-shield-alt fa-2x mb-3"></i>
+                        <h5>OSWE 💀</h5>
+                        <p class="mb-0">Offensive Security Web Expert<br><small>(Web apps fear me)</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Section -->
+    <section class="section bg-light-custom">
+        <div class="container">
+            <h2 class="section-title fun">When I'm Not Breaking Things 🎮</h2>
+            <div class="text-center">
+                <h4 class="fw-bold mb-4">Current Obsessions</h4>
+                <span class="interest-item">🎬 Movie Marathons</span>
+                <span class="interest-item">📺 Anime Binging</span>
+                <span class="interest-item">🎮 Gaming Sessions</span>
+                <span class="interest-item">♟️ Chess (I'm terrible)</span>
+                
+                <h4 class="fw-bold mb-4 mt-5">Learning Queue</h4>
+                <span class="interest-item">💻 Assembly (yes, really)</span>
+                <span class="interest-item">🔧 Neovim Wizardry</span>
+                <span class="interest-item">🔐 Crypto Magic</span>
+                <span class="interest-item">🌐 Reverse Proxy Fu</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section animated-gradient text-white">
+        <div class="container text-center">
+            <h2 class="section-title text-white">Let's Connect! 🤝</h2>
+            <p class="lead mb-5">Want to chat about security, share war stories, or just say hi? I'm all ears! 👂</p>
+            
+            <div class="social-links mb-4">
+                <a href="mailto:reachme@merb.in" class="email" title="Email Me!"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/merbinr" class="github" title="Code Stuff"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/merbin-russel" class="linkedin" title="Professional Me"><i class="fab fa-linkedin"></i></a>
+                <a href="https://blog.merb.in" class="blog" title="My Rants"><i class="fas fa-blog"></i></a>
+                <a href="https://x.com/merbinrussel" class="twitter" title="Hot Takes"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/merbinrussel" class="instagram" title="Life Pics"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-envelope fa-2x mb-2"></i>
+                    <h6>Drop a Line</h6>
+                    <p>reachme@merb.in</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-map-marker-alt fa-2x mb-2"></i>
+                    <h6>Location</h6>
+                    <p>Bengaluru, India 🇮🇳</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <i class="fas fa-coffee fa-2x mb-2"></i>
+                    <h6>Status</h6>
+                    <p>Probably debugging something ☕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-dark text-white">
+        <div class="container">
+            <p>&copy; 2025 Merbin Russel. Made with ❤️, ☕, and probably too much caffeine.</p>
+            <p class="small">P.S. - No systems were permanently harmed in the making of this career 😄</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar fun
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(102, 126, 234, 0.95)';
+            } else {
+                navbar.style.background = '';
+            }
+        });
+
+        // Easter egg: Konami code
+        let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.body.style.animation = 'gradient 2s ease infinite';
+                    alert('🎉 You found the secret! You\'re as persistent as a good security bug! 🐛');
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+    </script>
+</body>
 </html>
 
